@@ -55,7 +55,6 @@ body {
     background: pink;
     // random() will return a number between 1-100 with no argument being passed to it, or when you pass in a single integer parameter to define the upper limit. random(20) will return a number between 1-20.
     height: random(60) + 10 + vh;
-
     transform-origin: 0 0;
     @include add-move-animation(random(5) + 4 + s, random(3) - 1 + s);
     &::after {
@@ -64,11 +63,12 @@ body {
     }
   }
 }
+// to add a little bit of visual space
 .item:nth-child(even) {
   background: transparent;
   border: none;
 }
-
+// to add a little bit more randomness
 .item:nth-child(3n) {
   background: transparent;
 }
