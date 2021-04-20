@@ -5,7 +5,7 @@ $items-count: 240; // corresponds to the number of divs in your HTML
 // Define animation
 @keyframes move {
   0% {
-    transform: scaleY(1);
+    transform: scaleY(0);
   }
 
   100% {
@@ -19,7 +19,7 @@ $items-count: 240; // corresponds to the number of divs in your HTML
   animation-duration: $duration;
   animation-delay: $delay;
   animation-iteration-count: infinite;
-  animation-direction: alternate;
+  animation-direction: normal;
   animation-timing-function: cubic-bezier(1, 0.1, 0.795, 0.5);
   animation-play-state: paused;
 }
@@ -41,7 +41,6 @@ body {
   width: 100%;
   height: 20%;
   background-color: salmon;
-  transform-origin: center;
 }
 
 // For loop to randomize values for each div bar
