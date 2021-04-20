@@ -21,6 +21,7 @@ $items-count: 240; // corresponds to the number of divs in your HTML
   animation-iteration-count: infinite;
   animation-direction: alternate;
   animation-timing-function: cubic-bezier(1, 0.1, 0.795, 0.5);
+  animation-play-state: paused;
 }
 
 body {
@@ -32,7 +33,15 @@ body {
   display: grid;
   grid-template-columns: repeat($items-count, 1fr);
   grid-template-rows: 1fr;
-  height: 100vh;
+  height: 70vh;
+  width: 100vw;
+}
+
+.baby-item-1 {
+  width: 100%;
+  height: 20%;
+  background-color: salmon;
+  transform-origin: center;
 }
 
 // For loop to randomize values for each div bar
