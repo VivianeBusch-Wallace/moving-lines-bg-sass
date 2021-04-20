@@ -41,9 +41,10 @@ body {
   border-radius: 1rem;
   border: whitesmoke 1px solid;
   &::after {
-    background-color: rgb(12, 240, 111);
     content: "";
     width: 100%;
+    position: relative;
+    background-color: rgb(12, 240, 111);
   }
 }
 // the ::after is experimental, will come back to it later
@@ -59,10 +60,15 @@ body {
     @include add-move-animation(random(5) + 4 + s, random(3) - 1 + s);
     &::after {
       height: random(20) + rem;
-      transform-origin: random(20);
+      transform-origin: random(20) + rem;
     }
   }
 }
 .item:nth-child(even) {
+  background: transparent;
+  border: none;
+}
+
+.item:nth-child(3n) {
   background: transparent;
 }
