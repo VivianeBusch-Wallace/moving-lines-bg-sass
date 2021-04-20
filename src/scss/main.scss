@@ -10,6 +10,7 @@ $items-count: 240; // corresponds to the number of divs in your HTML
 
   100% {
     transform: scaleY(1.4);
+    opacity: 0;
   }
 }
 
@@ -21,7 +22,7 @@ $items-count: 240; // corresponds to the number of divs in your HTML
   animation-iteration-count: infinite;
   animation-direction: normal;
   animation-timing-function: cubic-bezier(1, 0.1, 0.795, 0.5);
-  animation-play-state: paused;
+  //   animation-play-state: paused;
 }
 
 body {
