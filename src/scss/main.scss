@@ -39,14 +39,14 @@ body {
 }
 .item {
   border-radius: 1rem;
-  border: black 1px solid;
+  border: whitesmoke 1px solid;
+  &::after {
+    background-color: rgb(12, 240, 111);
+    content: "";
+    width: 100%;
+  }
 }
-
-.baby-item-1 {
-  width: 1fr;
-  height: 20vh;
-  background-color: salmon;
-}
+// the ::after is experimental, will come back to it later
 
 // For loop to randomize values for each div bar
 @for $i from 1 through $items-count {
@@ -57,6 +57,10 @@ body {
 
     transform-origin: 0 0;
     @include add-move-animation(random(5) + 4 + s, random(3) - 1 + s);
+    &::after {
+      height: random(20) + rem;
+      transform-origin: random(20);
+    }
   }
 }
 .item:nth-child(even) {
