@@ -1,15 +1,16 @@
 // @import "../../node_modules/bootstrap/scss/bootstrap.scss";
 
-$items-count: 240; // corresponds to the number of divs in your HTML
+$items-count: 360; // corresponds to the number of divs in your HTML
 
 // Define animation
 @keyframes move {
   0% {
-    transform: scaleY(1);
+    transform: scaleY(0);
   }
 
   100% {
     transform: scaleY(1.4);
+    opacity: 0;
   }
 }
 
@@ -19,9 +20,9 @@ $items-count: 240; // corresponds to the number of divs in your HTML
   animation-duration: $duration;
   animation-delay: $delay;
   animation-iteration-count: infinite;
-  animation-direction: alternate;
+  animation-direction: normal;
   animation-timing-function: cubic-bezier(1, 0.1, 0.795, 0.5);
-  animation-play-state: paused;
+  //   animation-play-state: paused;
 }
 
 body {
@@ -33,41 +34,44 @@ body {
   display: grid;
   grid-template-columns: repeat($items-count, 1fr);
   grid-template-rows: 1fr;
-  height: 70vh;
+  height: 80vh;
   width: 100vw;
 }
+.item {
+  border-radius: 1rem;
+  border: whitesmoke 1px solid;
+  &::after {
+    content: "";
+    width: 100%;
+    position: relative;
+    background-color: rgb(12, 240, 111);
+  }
+}
+// the ::after is experimental, will come back to it later
 
 // For loop to randomize values for each div bar
 @for $i from 1 through $items-count {
+  .item:nth-child(#{random($i)}) {
+    background: transparent;
+    border: none;
+  }
   .item:nth-child(#{$i}) {
-    background: linear-gradient(
-      to bottom right,
-      lighten(pink, random(40)),
-      rgba(darken(pink, random(10)), 1)
-    );
-    // random() will return a number between 1-100 with no argument being passed to it, or when you pass in a single integer parameter to define the upper limit. random(20) will return a number between 1-20.
+    background: pink;
     height: random(60) + 10 + vh;
-    // border-radius: 0 0 ((random(50) + 10 + px)) ((random(50) + 10 + px));
     transform-origin: 0 0;
-
-    // @if (($i % 2) != 0) {
-    //   border-radius: ((random(50) + 10 + px)) ((random(20) + 10 + px)) 0 0;
-    //   background: linear-gradient(
-    //     to top right,
-    //     lighten(gray, random(40)),
-    //     rgba(darken(gray, random(10)), 1)
-    //   );
-    // }
-    // The lighten() function increases lightness by a fixed amount.
-    // The darken() function decreases lightness by a fixed amount.
     @include add-move-animation(random(5) + 4 + s, random(3) - 1 + s);
+    &::after {
+      height: random(20) + rem;
+      transform-origin: random(20) + rem;
+    }
   }
 }
-
+// to add a little bit of visual space
 .item:nth-child(even) {
-  //   align-self: end;
-  //   transform-origin: 0 100%;
+  background: transparent;
+  border: none;
+}
+// to add a little bit more randomness
+.item:nth-child(3n) {
   background: transparent;
 }
-
-// .item: nth-child(#{$i});
