@@ -51,9 +51,12 @@ body {
 
 // For loop to randomize values for each div bar
 @for $i from 1 through $items-count {
+  .item:nth-child(#{random($i)}) {
+    background: transparent;
+    border: none;
+  }
   .item:nth-child(#{$i}) {
     background: pink;
-    // random() will return a number between 1-100 with no argument being passed to it, or when you pass in a single integer parameter to define the upper limit. random(20) will return a number between 1-20.
     height: random(60) + 10 + vh;
     transform-origin: 0 0;
     @include add-move-animation(random(5) + 4 + s, random(3) - 1 + s);
