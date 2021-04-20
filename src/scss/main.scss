@@ -37,6 +37,9 @@ body {
   height: 70vh;
   width: 100vw;
 }
+.item {
+  border-end-end-radius: 1rem;
+}
 
 .baby-item-1 {
   width: 100%;
@@ -47,37 +50,14 @@ body {
 // For loop to randomize values for each div bar
 @for $i from 1 through $items-count {
   .item:nth-child(#{$i}) {
-    background: linear-gradient(
-      to bottom right,
-      lighten(pink, random(40)),
-      rgba(darken(white, random(10)), 1)
-    );
+    background: linear-gradient(to bottom, pink, white, 1);
     // random() will return a number between 1-100 with no argument being passed to it, or when you pass in a single integer parameter to define the upper limit. random(20) will return a number between 1-20.
     height: random(60) + 10 + vh;
-    // border-radius: 0 0 ((random(50) + 10 + px)) ((random(50) + 10 + px));
-    transform-origin: 0 0;
 
-    // @if (($i % 2) != 0) {
-    //   border-radius: ((random(50) + 10 + px)) ((random(20) + 10 + px)) 0 0;
-    //   background: linear-gradient(
-    //     to top right,
-    //     lighten(gray, random(40)),
-    //     rgba(darken(gray, random(10)), 1)
-    //   );
-    // }
-    // The lighten() function increases lightness by a fixed amount.
-    // The darken() function decreases lightness by a fixed amount.
+    transform-origin: 0 0;
     @include add-move-animation(random(5) + 4 + s, random(3) - 1 + s);
   }
 }
-.item {
-  border-radius: 2rem;
-}
-
 .item:nth-child(even) {
-  //   align-self: end;
-  //   transform-origin: 0 100%;
   background: transparent;
 }
-
-// .item: nth-child(#{$i});
