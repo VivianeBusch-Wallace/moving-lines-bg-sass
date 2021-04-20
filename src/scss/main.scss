@@ -44,7 +44,7 @@ body {
   display: grid;
   grid-template-columns: repeat($items-count, 1fr);
   grid-template-rows: 1fr;
-  height: 80vh;
+  height: 100vh;
   width: 100vw;
 }
 .item {
@@ -72,18 +72,17 @@ body {
   }
   .item:nth-child(#{$i}) {
     background: whitesmoke;
-    height: random(60) + 10 + vh;
+    height: random(100) + vh;
     transform-origin: 0 0;
-    @include add-move-animation(random(3) + 2 + s, random(3) - 1 + s);
+    @include add-move-animation(random(2) + 2 + s, random(3) - 1 + s);
     &::after {
-      transform-origin: random(20) + rem;
-      height: random(20) + rem;
+      height: random(4) + rem;
       animation-name: move-child;
-      animation-duration: random(3) + 2 + s;
+      animation-duration: random(2) + 2 + s;
       animation-delay: random(3) - 1 + s;
       animation-iteration-count: infinite;
       animation-direction: normal;
-      animation-timing-function: cubic-bezier(1, 0.1, 0.795, 0.5);
+      animation-timing-function: cubic-bezier(0, 0.1, 0.795, 0.5);
     }
   }
 }
