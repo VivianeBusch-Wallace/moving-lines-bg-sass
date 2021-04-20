@@ -37,13 +37,6 @@ body {
   width: 100vw;
 }
 
-.baby-item-1 {
-  width: 100%;
-  height: 20%;
-  background-color: salmon;
-  transform-origin: center;
-}
-
 // For loop to randomize values for each div bar
 @for $i from 1 through $items-count {
   .item:nth-child(#{$i}) {
